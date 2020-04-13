@@ -10,7 +10,7 @@ export default {
   name: "question",
   props: {
     question: String,
-    answer: Boolean
+    answer: String
   }
 };
 </script>

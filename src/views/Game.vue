@@ -5,6 +5,13 @@
       :question="questions[0].question"
       :answer="questions[0].correct_answer"
     ></Question>
+    <v-container fluid>
+      <v-radio-group v-model="userAnswer" :mandatory="false">
+        <v-radio label="True" value="True"></v-radio>
+        <v-radio label="False" value="False"></v-radio>
+      </v-radio-group>
+    </v-container>
+    <v-btn @click="nextQuestion">Next</v-btn>
   </div>
 </template>
 
@@ -16,7 +23,9 @@ export default {
   name: "Game",
   data() {
     return {
-      questions: null
+      questions: [],
+      userAnswer: "True",
+      userAnswers: []
     };
   },
   async created() {
@@ -24,6 +33,13 @@ export default {
   },
   components: {
     Question
+  },
+  methods: {
+    nextQuestion() {
+      if (this.userAnswer == this.questions[0].correct_answer) {
+        this.userAnswers.push(this.userAnswer);
+      }
+    }
   }
 };
 </script>
