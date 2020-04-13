@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://opentdb.com/api.php",
+  baseURL: "https://opentdb.com",
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json"
@@ -9,12 +9,10 @@ const API = axios.create({
 });
 
 export default {
-  async getToken() {
-    const response = await API.get("");
-    return response.data;
-  },
   async getTenEasy() {
-    const response = await API.get("?amount=10&difficulty=easy&type=multiple");
+    const response = await API.get(
+      "/api.php?amount=10&difficulty=easy&type=boolean"
+    );
     return response.data.results;
   }
 };

@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app app>
     <v-app-bar app color="primary" dark>
       <div class="d-flex align-center">
         <v-img
@@ -33,8 +33,10 @@
       </v-btn>
     </v-app-bar>
 
-    <v-content>
-      <router-view></router-view>
+    <v-content app>
+      <v-container>
+        <router-view></router-view>
+      </v-container>
     </v-content>
   </v-app>
 </template>

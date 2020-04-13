@@ -2,15 +2,13 @@
   <div class="home">
     <h1>Pon a prueba tu cultura general</h1>
     <div class="text-center">
-      <v-btn to="/easy" rounded color="primary" dark>Play</v-btn>
+      <v-btn to="/game" rounded color="primary" dark>Play</v-btn>
     </div>
   </div>
 </template>
 
 <script>
-
 export default {
-  name: "Home",
-  
+  name: "Home"
 };
 </script>
