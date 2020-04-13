@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://opentdb.com/api",
+  baseURL: "https://opentdb.com/api.php",
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json"
@@ -14,9 +14,7 @@ export default {
     return response.data;
   },
   async getTenEasy() {
-    const response = await API.get(
-      ".php?amount=10&difficulty=easy&type=multiple"
-    );
-    return response.data;
+    const response = await API.get("?amount=10&difficulty=easy&type=multiple");
+    return response.data.results;
   }
 };
