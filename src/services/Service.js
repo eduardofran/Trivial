@@ -12,5 +12,11 @@ export default {
   async getToken() {
     const response = await API.get("");
     return response.data;
+  },
+  async getTenEasy() {
+    const response = await API.get(
+      ".php?amount=10&difficulty=easy&type=multiple"
+    );
+    return response.data;
   }
 };

@@ -2,17 +2,32 @@
   <div class="home">
     <h1>Pon a prueba tu cultura general</h1>
     <div class="text-center">
-      <v-btn rounded color="primary" dark>Rounded Button</v-btn>
+      <v-btn rounded color="primary" dark @click="getTenFirst"
+        >Rounded Button</v-btn
+      >
+      {{ tenQuestions }}
     </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-
+import APIServices from "../services/Service";
 export default {
   name: "Home",
+  data() {
+    return {
+      tenQuestions: {}
+    };
+  },
   components: {},
-  methods: {}
+  methods: {
+    async getTenFirst() {
+      const tenQuestionResponse = await APIServices.getTenEasy();
+      return (this.tenQuestions = tenQuestionResponse);
+    }
+  },
+  mounted() {
+    this.getTenFirst();
+  }
 };
 </script>
